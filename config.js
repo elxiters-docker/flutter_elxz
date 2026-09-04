@@ -69,6 +69,7 @@ module.exports = {
   // pernah chat duluan ke akun ini). Kalau tidak, pengiriman akan gagal
   // dengan error "Cannot find any entity" dari Telegram.
   // ==========================================
+  MTROTO_ENABLED: true,
   TELEGRAM_API_ID: 34724046,      // Angka dari my.telegram.org, contoh: 1234567
   TELEGRAM_API_HASH: '554248e6b16063ae890fbd42790e63c9',   // String dari my.telegram.org
   TELEGRAM_SESSION: ''     // Diisi otomatis oleh generate_session.js
