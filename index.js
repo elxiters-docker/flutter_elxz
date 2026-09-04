@@ -68,7 +68,7 @@ async function getMtprotoClient() {
   return mtprotoConnecting;
 }
 
-const BOT_API_FILE_LIMIT_BYTES = 49 * 1024 * 1024; // batas aman di bawah 50 MB Bot API
+const BOT_API_FILE_LIMIT_BYTES = 2 * 1024 * 1024 * 1024; // 2GB
 
 /**
  * Kirim file APK ke chat. Pakai Bot API kalau ukurannya masih di bawah
@@ -79,7 +79,7 @@ const BOT_API_FILE_LIMIT_BYTES = 49 * 1024 * 1024; // batas aman di bawah 50 MB 
 async function sendApkToChat(chatId, apkPath, caption, filename) {
   const sizeBytes = fs.statSync(apkPath).size;
 
-  if (sizeBytes <= BOT_API_FILE_LIMIT_BYTES) {
+  if (sizeBytes <= 50 * 1024 * 1024) { // 50MB pake bot biasa
     return bot.sendDocument(chatId, apkPath, { caption, parse_mode: 'Markdown' }, {
       filename,
       contentType: 'application/vnd.android.package-archive'
